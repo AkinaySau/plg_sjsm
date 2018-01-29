@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.6" group="sjsm" method="upgrade">
+    <name>SJSM-K2</name>
+    <creationDate>15.01.2018</creationDate>
+    <author>AkinaySau</author>
+    <authorEmail>akinaysau@gmail.com</authorEmail>
+    <authorUrl>https://a-sau.ru</authorUrl>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0</version>
+    <description>Плагин для SJSM - К2</description>
+
+    <!-- Scripts to run on installation -->
+    <!--<scriptfile>script.php</scriptfile>-->
+
+    <!--<languages folders="language">-->
+    <!--<language tag="en-GB">en-GB/en-GB.plg_sjsm_k2.ini</language>-->
+    <!--<language tag="en-GB">en-GB/en-GB.plg_sjsm_k2.sys.ini</language>-->
+    <!--<language tag="ru-RU">ru-RU/ru-RU.plg_sjsm_k2.ini</language>-->
+    <!--<language tag="ru-RU">ru-RU/ru-RU.plg_sjsm_k2.sys.ini</language>-->
+    <!--</languages>-->
+
+    <files>
+        <filename plugin="k2">k2.php</filename>
+        <filename>index.html</filename>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset addfieldpath="/administrator/components/com_k2/elements/"
+                      label="K2"
+                      name="basic"
+            >
+                <field name="k2_items"
+                       type="radio"
+                       label="Не использовать материалы"
+                       description="При включении параметра страницы материалов не будут попадать в карту сайта"
+                       default="1"
+                       class="btn-group btn-group-yesno radio"
+                >
+                    <option value="0">Не использовать</option>
+                    <option value="1">Использовать</option>
+                    <option value="2">Определённые категории</option>
+                </field>
+                <field name="k2_items_cats"
+                       type="categoriesmultiple"
+                       label="Категории(материалы)"
+                       description="Категории материалы из которых будут использованы"
+                       showon="k2_items:2"
+                />
+
+                <field
+                        name="k2_cats"
+                        value="1"
+                        label="Не использовать категории"
+                        description="При включении параметра страницы категорий не будут попадать в карту сайта"
+                        type="radio"
+                        default="1"
+                        class="btn-group btn-group-yesno radio"
+                >
+                    <option value="0">Не использовать</option>
+                    <option value="1">Использовать</option>
+                    <option value="2">Определённые категории</option>
+                </field>
+                <field
+                        name="k2_cats_only"
+                        type="categoriesmultiple"
+                        description="Страницы картегорий"
+                        label="Категории(страницы)"
+                        showon="k2_cats:2"
+
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
